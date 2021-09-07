@@ -26,7 +26,7 @@ exports.getRuns = async (req, res) => {
 		if (runs.length > 0) {
 			res.status(200).json({
 				status: 'success',
-				results: runs.length,
+				length: runs.length,
 				data: {
 					runs,
 				},
@@ -34,8 +34,9 @@ exports.getRuns = async (req, res) => {
 		} else {
 			res.status(400).json({
 				status: 'success',
+				length: runs.length,
 				data: {
-					message: `No runs in collection for ${req.params.id}`,
+					message: `No runs in collection for ${req.params.user}`,
 				},
 			});
 		}

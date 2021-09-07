@@ -8,7 +8,7 @@ exports.getBikes = async (req, res) => {
 		if (bikes.length > 0) {
 			res.status(200).json({
 				status: 'success',
-				results: bikes.length,
+				length: bikes.length,
 				data: {
 					bikes,
 				},
@@ -16,6 +16,7 @@ exports.getBikes = async (req, res) => {
 		} else {
 			res.status(400).json({
 				status: 'success',
+				length: bikes.length,
 				data: {
 					message: 'No bikes in collection',
 				},

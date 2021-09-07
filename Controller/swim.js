@@ -8,7 +8,7 @@ exports.getSwims = async (req, res) => {
 		if (swims.length > 0) {
 			res.status(200).json({
 				status: 'success',
-				results: swims.length,
+				length: swims.length,
 				data: {
 					swims,
 				},
@@ -16,6 +16,7 @@ exports.getSwims = async (req, res) => {
 		} else {
 			res.status(400).json({
 				status: 'success',
+				length: swims.length,
 				data: {
 					message: `No swims in collection for ${req.params.user}`,
 				},
