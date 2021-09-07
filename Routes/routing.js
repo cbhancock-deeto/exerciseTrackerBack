@@ -14,7 +14,7 @@ routing.put('/user', userController.updateUser);
 routing.delete('/deleteAllUsers', userController.deleteAllUsers);
 
 // CRUD operations associated with bike controller
-routing.get('/bikes', bikeController.getBikes);
+routing.get('/bikes/:user', bikeController.getBikes);
 routing.get('/bikeById', bikeController.getBikeById);
 routing.post('/bikes', bikeController.newBike);
 routing.put('/bikes/:id', bikeController.updateBike);
@@ -30,7 +30,7 @@ routing.delete('/runs', runController.deleteRun);
 routing.delete('/deleteAllRuns', runController.deleteAllRuns);
 
 // CRUD operations associated with swim controller
-routing.get('/swims', swimController.getSwims);
+routing.get('/swims/:user', swimController.getSwims);
 routing.get('/swimById', swimController.getSwimById);
 routing.post('/swims', swimController.newSwim);
 routing.put('/swims/:id', swimController.updateSwim);

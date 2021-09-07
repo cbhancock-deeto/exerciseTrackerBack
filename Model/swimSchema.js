@@ -12,6 +12,9 @@ const swimSchema = new mongoose.Schema({
 	notes: {
 		type: String,
 	},
+	date: {
+		type: Date,
+	},
 });
 
 const SwimModel = mongoose.model('swim', swimSchema);

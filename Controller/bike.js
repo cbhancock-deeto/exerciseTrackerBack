@@ -3,7 +3,7 @@ const BikeModel = require('../Model/bikeSchema');
 // Read operation - gets all bikes in db
 exports.getBikes = async (req, res) => {
 	try {
-		const bikes = await BikeModel.find({ userID: req.body.username });
+		const bikes = await BikeModel.find({ userID: req.params.user });
 
 		if (bikes.length > 0) {
 			res.status(200).json({
@@ -112,7 +112,6 @@ exports.updateBike = async (req, res) => {
 // delete operation - removes entry from bike collection based on mongo-defined id
 exports.deleteBike = async (req, res) => {
 	const delBike = await BikeModel.deleteOne({ _id: req.body._id });
-	console.log(delBike);
 	if (delBike.deletedCount === 0) {
 		res.status(404).json({
 			status: 'fail',

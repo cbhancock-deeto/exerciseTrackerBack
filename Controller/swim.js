@@ -3,7 +3,7 @@ const SwimModel = require('../Model/swimSchema.js');
 //Read operation - gets all swims in the db
 exports.getSwims = async (req, res) => {
 	try {
-		const swims = await SwimModel.find({ userID: req.body.username });
+		const swims = await SwimModel.find({ userID: req.params.user });
 
 		if (swims.length > 0) {
 			res.status(200).json({
@@ -17,7 +17,7 @@ exports.getSwims = async (req, res) => {
 			res.status(400).json({
 				status: 'success',
 				data: {
-					message: 'No swims in collection',
+					message: `No swims in collection for ${req.params.user}`,
 				},
 			});
 		}
@@ -77,7 +77,7 @@ exports.newSwim = async (req, res) => {
 // update operation - updates entry in db based on mongo _id
 exports.updateSwim = async (req, res) => {
 	try {
-		const bike = await SwimModel.findOneAndUpdate(
+		const swim = await SwimModel.findOneAndUpdate(
 			{ _id: req.params.id },
 			req.body,
 			{
@@ -121,7 +121,7 @@ exports.deleteSwims = async (req, res) => {
 	} else {
 		res.status(200).json({
 			status: 'success',
-			message: `Bikes w id ${req.body._id} deleted`,
+			message: `Swims w id ${req.body._id} deleted`,
 		});
 	}
 };
@@ -137,7 +137,7 @@ exports.deleteAllSwims = async (req, res) => {
 	} else {
 		res.status(200).json({
 			status: 'success',
-			message: 'bike entries deleted',
+			message: 'swim entries deleted',
 		});
 	}
 };

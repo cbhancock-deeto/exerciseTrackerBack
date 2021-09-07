@@ -12,6 +12,9 @@ const bikeSchema = new mongoose.Schema({
 	notes: {
 		type: String,
 	},
+	date: {
+		type: Date,
+	},
 });
 
 const BikeModel = mongoose.model('bike', bikeSchema);
